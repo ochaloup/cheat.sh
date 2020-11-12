@@ -37,11 +37,10 @@ class RepositoryAdapter(Adapter):
         return answer
 
     def _get_page(self, topic, request_options=None):
-
         filename = os.path.join(
             self.local_repository_location(),
             self._cheatsheet_files_prefix,
-            topic)
+            topic + self._cheatsheet_files_extension)
 
         if os.path.exists(filename):
             answer = self._format_page(open(filename, 'r').read())
